@@ -5,7 +5,7 @@ Camera_0834d268: @ 0x0834d268
   .4byte 0*PX, 0*PX
   .4byte 0*PX, 0*PX
   .2byte 0x0, 0x0, 0x0, 0x0
-  .4byte 1200*PX, MAX_X, 0*PX, MAX_Y
+  .4byte 32*PX, 4768*PX, 1440*PX, 1760*PX
 
 Camera_0834d294: @ 0x0834d294
   .byte 1, 9, 0, 0
@@ -224,7 +224,7 @@ Entity_0834d530: @ 0x0834d530
 @ ゼロを壊れた宇宙船のスタート地点に生成する
 Entity_ZeroSpaceCraftStartPoint: @ 0x0834d540
   .byte PLAYER, ZERO, 0, 0
-  .4byte 0x52000, 0x6C000
+  .4byte 1312*PX, 1728*PX
   .4byte DIR_RIGHT
 
 @ ゼロを壊れた宇宙船のスタート地点に生成する

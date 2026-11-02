@@ -160,7 +160,7 @@ $(BUILD_DIR)/src/libs/agb_sram.o: CFLAGS := -O -mthumb-interwork
 $(BUILD_DIR)/src/libs/m4a.o: AGBCC := tools/agbcc/bin/old_agbcc$(EXE)
 endif
 
-LDSCRIPT = ld_script$(MODIFIERS).ld
+LDSCRIPT ?= ld_script$(MODIFIERS).ld
 LD_INC := $(wildcard linker/*.txt)
 LD_BUILD := $(addprefix $(BUILD_DIR)/, $(LD_INC))
 
@@ -264,3 +264,12 @@ endif
 PREPROC := tools/preproc/preproc$(EXE)
 $(ASM_USE_PREPROC_OBJS): $(BUILD_DIR)/%.o: %.s
 	$(PREPROC) $< charmap.txt | $(AS) $(ASFLAGS) -o $@ -
+
+# terrain.s .incbin's the stage data files; scaninc does not record .incbin
+# dependencies, so force terrain.o to rebuild whenever any stage .bin changes.
+# (Without this, editing screen.bin/metatile.bin does not trigger a relink.)
+$(BUILD_DIR)/src/stage/terrain.o: $(wildcard data/stage/*/*.bin)
+
+# Demo room generated data: .sx includes are not otherwise tracked.
+$(BUILD_DIR)/src/data/scripts/scripts.o: src/data/scripts/spacecraft.inc
+$(BUILD_DIR)/src/weapon/dsh_bow.o: include/dsh_room_config.h

@@ -11,12 +11,12 @@
 #define PUTITED_DAMAGE 8
 
 void ClearZeroStatus(struct ZeroStatus* p) {
-  p->weapons[0] = WEAPON_BUSTER, p->weapons[1] = WEAPON_SABER;
+  p->weapons[0] = WEAPON_BUSTER, p->weapons[1] = WEAPON_SHIELD;
   p->element = 0;
   p->satelites[0] = ELF_NONE, p->satelites[1] = ELF_NONE;
   p->head = HEAD_CHIP_NONE, p->body = BODY_CHIP_NONE, p->foot = FOOT_CHIP_NONE;
   p->exSkill = 0;
-  p->unlockedWeapon = ((1 << WEAPON_BUSTER) | (1 << WEAPON_SABER));
+  p->unlockedWeapon = ((1 << WEAPON_BUSTER) | (1 << WEAPON_SHIELD));
   p->unlockedHead = (1 << HEAD_CHIP_NONE);
   p->unlockedBody = (1 << BODY_CHIP_NONE);
   p->unlockedFoot = (1 << FOOT_CHIP_NONE);
@@ -35,6 +35,20 @@ void ClearZeroStatus(struct ZeroStatus* p) {
   p->maxHP = 64;
   p->dying = FALSE;
   p->menuZeroColor = MZC_NORMAL;
+}
+
+/*
+  DSH demo.
+
+  Switching the starting sub-weapon above makes agbcc emit a slightly shorter
+  sequence, which shrinks this object by 8 bytes and therefore moves every
+  later symbol in the ROM image.  The decompilation still contains hard-coded
+  absolute addresses, so the image must keep its original layout.  This pad
+  puts the 8 bytes back, right after the affected function.
+*/
+NAKED void DshSizePad(void) {
+  asm(".4byte 0\n\
+	.4byte 0\n");
 }
 
 void ClearZeroStatusHard(struct ZeroStatus* p) {

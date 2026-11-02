@@ -236,8 +236,9 @@ const struct PreloadEntity gSpaceCraftStatic[8] = {
 // clang-format off
 const struct SpawnPoint gSpaceCraftSpawnPoints[68] = {
 	[0]  = { -0x80000000, -0x8000, 0 },
-	[1]  = { SpawnPixelCoords(1664, 1680), 7 },
-	[2]  = { SpawnPixelCoords(1824, 1648), 7 },
+	// DSH demo: two Pantheon Hunters inside the test room (wall is at x=1680).
+	[1]  = { SpawnPixelCoords(1500, 1680), 10 },
+	[2]  = { SpawnPixelCoords(1650, 1680), 10 },
 	[3]  = { SpawnPixelCoords(1968, 1696), 8 },
 	[4]  = { SpawnPixelCoords(2256, 1616), 7 },
 	[5]  = { SpawnPixelCoords(2320, 1616), 23 },

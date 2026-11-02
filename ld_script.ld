@@ -3,7 +3,7 @@ OUTPUT_ARCH(arm)
 MEMORY {
     ewram   : ORIGIN = 0x02000000, LENGTH = 4M - 4k
     iwram   : ORIGIN = 0x03000000, LENGTH = 32k
-		rom     : ORIGIN = (0x08000000), LENGTH = 8M
+		rom     : ORIGIN = (0x08000000), LENGTH = 32M
 }
 
 gMaxLines = 0;
@@ -15,6 +15,8 @@ SECTIONS {
 	ALIGN(4)
     {
       INCLUDE "linker/ewram.txt"
+      /* DSH demo scratch state lives at the end of ewram. */
+      src/weapon/dsh_bow.o (.bss);
     } >ewram = 0x00
 
 	. = 0x3000000;
@@ -61,6 +63,26 @@ SECTIONS {
 	ALIGN(4)
 	{
 			INCLUDE "linker/rodata.txt"
+	} >rom = 0x00
+
+	/*
+	  DSH demo extension area.
+
+	  The original image fills the cartridge exactly up to 0x08800000, so any
+	  new code or art has to live past that point.  Appending here leaves every
+	  existing symbol address unchanged, which is what keeps the still
+	  hard-coded absolute addresses in the decompilation valid.
+	*/
+	.romext :
+	ALIGN(4)
+	{
+			src/weapon/dsh_bow.o (.text);
+			src/weapon/dsh_bow.o (.rodata);
+			src/weapon/dsh_bow.o (.data);
+			src/weapon/dsh_bow_sprite.o (.romext);
+            src/weapon/dsh_bow_air_sprite.o (.romext);
+			src/weapon/dsh_arrow_art.o (.romext);
+            src/weapon/dsh_arrow_art.o (.rodata);
 	} >rom = 0x00
 
     /* Discard everything not specifically mentioned above. */

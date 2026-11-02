@@ -44,10 +44,10 @@ gDynamicMotionMetaspriteTable:
   .word gMetaSprite_zero_rod_ladder
   .word gMetaSprite_zero_idle
   .word gMetaSprite_zero_idle
-  .word gMetaSprite_zero_shield_shield
+  .word gDshBowMetaSprite
   .word gMetaSprite_zero_shield_throw
   .word gMetaSprite_zero_shield_walk
-  .word gMetaSprite_zero_shield_air
+  .word gDshBowAirMetaSprite
   .word gMetaSprite_zero_shield_throw_air
   .word gMetaSprite_zero_shield_wall
   .word gMetaSprite_zero_shield_throw_wall
@@ -113,7 +113,7 @@ gDynamicMotionMetaspriteTable:
   .word gMetaSprite_zero_idle
   .word gMetaSprite_zero_idle
   .word gMetaSprite_weapon_unk_108
-  .word gMetaSprite_weapon_unk_109
+  .word gDshArrowMetaSprite
   .word gMetaSprite_weapon_unk_110
   .word gMetaSprite_weapon_unk_111
   .word gMetaSprite_weapon_unk_112
@@ -413,10 +413,10 @@ gDynamicMotionCmdTable:
   .word gAnimationSequence_zero_rod_ladder
   .word gAnimationSequence_zero_idle
   .word gAnimationSequence_zero_idle
-  .word gAnimationSequence_zero_shield_shield
+  .word gDshBowSequence
   .word gAnimationSequence_zero_shield_throw
   .word gAnimationSequence_zero_shield_walk
-  .word gAnimationSequence_zero_shield_air
+  .word gDshBowAirSequence
   .word gAnimationSequence_zero_shield_throw_air
   .word gAnimationSequence_zero_shield_wall
   .word gAnimationSequence_zero_shield_throw_wall
@@ -482,7 +482,7 @@ gDynamicMotionCmdTable:
   .word gAnimationSequence_zero_idle
   .word gAnimationSequence_zero_idle
   .word gAnimationSequence_weapon_unk_108
-  .word gAnimationSequence_weapon_unk_109
+  .word gDshArrowSequence
   .word gAnimationSequence_weapon_unk_110
   .word gAnimationSequence_weapon_unk_111
   .word gAnimationSequence_weapon_unk_112

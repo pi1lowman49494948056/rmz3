@@ -103,13 +103,17 @@ extern const WeaponRoutine gSmashElecRoutine;
 extern const WeaponRoutine gElecShieldSweepRoutine;
 extern const WeaponRoutine gMinigameRodRoutine;
 
+// DSH demo: bow (replaces the shield slot)
+extern const WeaponRoutine gDshBowChargeRoutine;
+extern const WeaponRoutine gDshBowShotRoutine;
+
 // clang-format off
 const WeaponRoutine* const gWeaponFnTable[WEAPON_MOVE_COUNT] = {
     [WEAPON_MOVE_Z_BUSTER] =          &gBusterRoutine,
     [WEAPON_MOVE_Z_SABER] =           &gSaberRoutine,
-    [WEAPON_MOVE_SHIELD_GUARD] =      &gShieldGuardRoutine,
+    [WEAPON_MOVE_SHIELD_GUARD] =      &gDshBowChargeRoutine,
     [WEAPON_MOVE_RECOIL_ROD] =        &gRodRoutine,
-    [WEAPON_MOVE_SHIELD_FLY] =        &gShieldFlyRoutine,
+    [WEAPON_MOVE_SHIELD_FLY] =        &gDshBowShotRoutine,
     [WEAPON_MOVE_SABER_WAVE] =        &gSaberWaveRoutine,
     [WEAPON_MOVE_06] =                &gWeapon6Routine,
     [WEAPON_MOVE_REFLECT_LASER] =     &gReflectLaserRoutine,

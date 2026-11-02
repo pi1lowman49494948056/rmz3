@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "origin_chunk": [
+    0,
+    9
+  ],
+  "wall_columns": 2,
+  "spawn_px": [
+    1312,
+    288
+  ],
+  "teleport": {
+    "trigger_left_px": 4400,
+    "target_px": [
+      400,
+      288
+    ]
+  }
+}

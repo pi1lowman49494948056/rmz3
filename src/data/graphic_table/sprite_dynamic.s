@@ -44,10 +44,10 @@ gDynamicMotionGraphicOffsets:
   .4byte gGraphicHeader_Sprite_zero_rod_ladder-.
   .4byte gGraphicHeader_Sprite_zero_idle-.
   .4byte gGraphicHeader_Sprite_zero_idle-.
-  .4byte gGraphicHeader_Sprite_zero_shield_shield-.
+  .4byte gDshBowGraphic-.
   .4byte gGraphicHeader_Sprite_zero_shield_throw-.
   .4byte gGraphicHeader_Sprite_zero_shield_walk-.
-  .4byte gGraphicHeader_Sprite_zero_shield_air-.
+  .4byte gDshBowAirGraphic-.
   .4byte gGraphicHeader_Sprite_zero_shield_throw_air-.
   .4byte gGraphicHeader_Sprite_zero_shield_wall-.
   .4byte gGraphicHeader_Sprite_zero_shield_throw_wall-.
@@ -113,7 +113,7 @@ gDynamicMotionGraphicOffsets:
   .4byte gGraphicHeader_Sprite_zero_idle-.
   .4byte gGraphicHeader_Sprite_zero_idle-.
   .4byte gGraphicHeader_Sprite_weapon_unk_108-.
-  .4byte gGraphicHeader_Sprite_weapon_unk_109-.
+  .4byte gDshArrowGraphic-.
   .4byte gGraphicHeader_Sprite_weapon_unk_110-.
   .4byte gGraphicHeader_Sprite_weapon_unk_111-.
   .4byte gGraphicHeader_Sprite_weapon_unk_112-.

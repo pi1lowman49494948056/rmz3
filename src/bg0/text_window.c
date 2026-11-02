@@ -1353,6 +1353,10 @@ extern const u16 TextOfs_Others[];
 
 // clang-format off
 // 0x083767b8
+// DSH demo: dialogue text placed in the ROM extension area (dsh_bow.c).
+extern const char_t gDshTexts[];
+extern const u16 gDshTextOfs[];
+
 static const u16* const gTextOffsetTable[20] = {
   TextOfs_System,
   TextOffsets_OpenSecretDisk,
@@ -1373,7 +1377,7 @@ static const u16* const gTextOffsetTable[20] = {
   TextOfs_GiantElevator,
   TextOfs_SubArcadia,
   TextOfs_WeilLabo,
-  TextOfs_Others,
+  gDshTextOfs,
 };
 // clang-format on
 
@@ -1420,7 +1424,7 @@ static const char_t* const gTextTable[20] = {
     Texts_GiantElevator,
     Text_SubArcadia,
     Text_WeilLabo,
-    Text_Others,
+    gDshTexts,
 };
 // clang-format on
 

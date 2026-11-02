@@ -10,6 +10,7 @@
 #include "story.h"
 #include "zero.h"
 
+extern s16 DshMissionUpdate(struct StageRun*);
 extern const GameCommand Script_MissionFail[];
 extern const GameCommand Script_MissionFail2[];
 
@@ -31,7 +32,7 @@ const u32 gStageID32s[STAGE_COUNT] = {
 // clang-format off
 const StageRunFunc gMissionUpdate[STAGE_COUNT] = {
     Stage0_MissionUpdate,
-    SpaceCraft_MissionUpdate,
+    DshMissionUpdate,
     Volcano_MissionUpdate,
     Ocean_MissionUpdate,
     RepairFactory_MissionUpdate,
@@ -56,7 +57,7 @@ const StageRunFunc gMissionUpdate[STAGE_COUNT] = {
 // clang-format off
 const StageRunFunc gFreerunUpdate[STAGE_COUNT] = {
     Stage0_MissionUpdate,
-    SpaceCraft_FreeUpdate,
+    DshMissionUpdate,
     Volcano_FreeUpdate,
     Ocean_FreeUpdate,
     RepairFactory_FreeUpdate,
@@ -85,7 +86,11 @@ static const struct CameraTemplate gDefaultCameraTemplate = {};
 // ------------------------------------------------------------------------------------------------------------------------------------
 
 void InitStageRun(u8 stageID) {
-  LoadStageRun(stageID, 0);
+  // DSH demo: start runs at checkpoint 3, whose script is the minimal
+  // "spawn Zero -> reset camera -> release control" init, so a new game drops
+  // the player straight into a controllable state (no recap/prologue/auto-walk).
+  // Size-neutral vs. the retail `0`, so the image layout does not move.
+  LoadStageRun(stageID, 3);
   return;
 }
 
